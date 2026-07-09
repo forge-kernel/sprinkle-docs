@@ -1072,6 +1072,22 @@ details[dropdown] > :not(summary) hr {
   [shell]:not([sidebar-hidden]) [sidebar] {
     transform: translateX(0);
   }
+  [shell-static] {
+    grid-template-columns: auto 1fr;
+  }
+  [shell-static] [sidebar],
+  [shell-static]:not([sidebar-hidden]) [sidebar],
+  [shell-static][sidebar-hidden] [sidebar] {
+    position: static;
+    transform: none;
+    width: var(--sprinkle-sidebar-width);
+    z-index: auto;
+    transition: none;
+    border-right: 1px solid var(--sprinkle-sidebar-border);
+  }
+  [shell-static] [content] {
+    overflow-y: visible;
+  }
 }
 
 /* ── Sidebar toggle button ── */
