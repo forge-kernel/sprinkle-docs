@@ -726,6 +726,14 @@ textarea.dash-input {
     .stats-row {
         grid-template-columns: 1fr;
     }
+    .dash-subnav details[dropdown] {
+        margin-right: 0.25rem;
+    }
+    .dash-subnav details[dropdown] > :not(summary) {
+        min-width: 160px;
+        right: 0;
+        left: auto;
+    }
     .top-nav nav a:not(.brand),
     .dash-subnav nav a {
         display: none;
