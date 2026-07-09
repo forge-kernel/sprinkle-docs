@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sprinkle - Acme Dashboard — Sprinkle Example</title>
+        <link
+            rel="stylesheet"
+            href="https://raw.githubusercontent.com/forge-kernel/sprinkle/refs/heads/main/src/UI/assets/css/sprinkle.min.css"
+        />
+        <link rel="stylesheet" href="dashboard.css" />
+        <meta name="sprinkle-svg-path" content="../icons/" />
+    </head>
+    <body>
+        <header class="top-nav" sticky>
+            <nav>
+                <a href="../index.html" class="brand"
+                    ><span class="bracket">[</span
+                    ><span class="bracket">]</span> spr<span class="accent"
+                        >inkle</span
+                    ></a
+                >
+                <a href="../docs.html">Docs</a>
+                <a href="../examples/dashboard.html" class="active">Examples</a>
+                <a href="https://github.com/forge-kernel/sprinkle">GitHub</a>
+            </nav>
+        </header>
+
+        <div class="dash-subnav" sticky>
+            <nav>
+                <span class="dash-brand">
+                    <span class="dash-brand-badge">F</span>
+                </span>
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">Projects</a>
+                <a href="#">Reports</a>
+                <a href="#">Settings</a>
+                <div class="header-search">
+                    <input
+                        type="search"
+                        placeholder="Search projects&hellip;"
+                    />
+                </div>
+                <details dropdown="right" close-outside>
+                    <summary title="User menu">
+                        <img
+                            src="https://i.abcnewsfe.com/a/10669fab-5a56-4555-8012-0b3d83369352/avatar-the-way-of-water-07-ht-jt-220907_1662579296232_hpMain_1x1.jpg?w=992"
+                            avatar="sm"
+                        />
+                        <span>Jane</span>
+                    </summary>
+                    <ul>
+                        <li><a href="#">My Profile</a></li>
+                        <li><a href="#">Account Settings</a></li>
+                        <li><a href="#" theme-toggle>Switch Theme</a></li>
+                        <li><hr nav-sep /></li>
+                        <li><a href="#">Sign Out</a></li>
+                    </ul>
+                </details>
+            </nav>
+        </div>
+
+        <div class="app-shell" shell>
+            <aside sidebar="left">
+                <ul nav>
+                    <li>
+                        <a href="#" active aria-current="page">Dashboard</a>
+                    </li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Team</a></li>
+                </ul>
+                <div class="app-side-label">Analytics</div>
+                <ul nav>
+                    <li><a href="#">Overview</a></li>
+                    <li><a href="#">Conversions</a></li>
+                    <li><a href="#">Traffic</a></li>
+                </ul>
+                <div class="app-side-label">Settings</div>
+                <ul nav>
+                    <li><a href="#">General</a></li>
+                    <li><a href="#">Billing</a></li>
+                    <li><a href="#">Notifications</a></li>
+                </ul>
+            </aside>
+
+            <article content class="stack">
+                <ul breadcrumb>
+                    <li><a href="#">Acme</a></li>
+                    <li>Dashboard</li>
+                </ul>
+
+                <h2
+                    style="
+                        margin: 0 0 1.5rem;
+                        font-size: 1.5rem;
+                        font-weight: 600;
+                    "
+                >
+                    Dashboard overview
+                </h2>
+
+                <div class="stats-row">
+                    <fieldset card>
+                        <header>Revenue</header>
+                        <main>
+                            <span count-up duration="2200" start="0"
+                                >128,430</span
+                            >
+                        </main>
+                        <footer tooltip="Compared to last month">
+                            ↑ 12.5% from last month
+                        </footer>
+                    </fieldset>
+                    <fieldset card>
+                        <header>Active Users</header>
+                        <main>
+                            <span count-up duration="2500" start="0"
+                                >2,847</span
+                            >
+                        </main>
+                        <footer tooltip="Compared to last month">
+                            ↑ 8.3% from last month
+                        </footer>
+                    </fieldset>
+                    <fieldset card>
+                        <header>Projects</header>
+                        <main>
+                            <span count-up duration="1500" start="0">64</span>
+                        </main>
+                        <footer tooltip="Completed this quarter">
+                            +12 new this quarter
+                        </footer>
+                    </fieldset>
+                    <fieldset card>
+                        <header>Uptime</header>
+                        <main>
+                            <span count-up duration="1000" start="95"
+                                >99.97</span
+                            ><span>%</span>
+                        </main>
+                        <footer tooltip="Last 30 days">
+                            ✓ All systems operational
+                        </footer>
+                    </fieldset>
+                </div>
+
+                <div class="dash-grid">
+                    <fieldset card>
+                        <header>Active Projects</header>
+                        <main>
+                            <div class="filter-bar">
+                                <select combo-box searchable>
+                                    <option value="">All statuses</option>
+                                    <option value="active" selected>
+                                        Active
+                                    </option>
+                                    <option value="review">In Review</option>
+                                    <option value="completed">Completed</option>
+                                </select>
+                                <select combo-box searchable>
+                                    <option value="">All teams</option>
+                                    <option value="design">Design</option>
+                                    <option value="eng" selected>
+                                        Engineering
+                                    </option>
+                                    <option value="marketing">Marketing</option>
+                                </select>
+                            </div>
+                            <table class="dash-table">
+                                <thead>
+                                    <tr>
+                                        <th>Project</th>
+                                        <th>Lead</th>
+                                        <th>Status</th>
+                                        <th>Progress</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <a
+                                                href="#"
+                                                command-for="detail-drawer"
+                                                command="show-modal"
+                                                tooltip="View details"
+                                                >Forge Core v2</a
+                                            >
+                                        </td>
+                                        <td>
+                                            <img
+                                                src="https://i.abcnewsfe.com/a/10669fab-5a56-4555-8012-0b3d83369352/avatar-the-way-of-water-07-ht-jt-220907_1662579296232_hpMain_1x1.jpg?w=992"
+                                                avatar="sm"
+                                                style="vertical-align: middle"
+                                            />
+                                            Alex
+                                        </td>
+                                        <td>
+                                            <span class="badge badge-green"
+                                                >Active</span
+                                            >
+                                        </td>
+                                        <td>
+                                            <progress
+                                                count-up
+                                                value="18"
+                                                max="24"
+                                            ></progress>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a
+                                                href="#"
+                                                command-for="detail-drawer"
+                                                command="show-modal"
+                                                tooltip="View details"
+                                                >Sprinkle Docs</a
+                                            >
+                                        </td>
+                                        <td>
+                                            <img
+                                                src="https://i.abcnewsfe.com/a/10669fab-5a56-4555-8012-0b3d83369352/avatar-the-way-of-water-07-ht-jt-220907_1662579296232_hpMain_1x1.jpg?w=992"
+                                                avatar="sm"
+                                                style="vertical-align: middle"
+                                            />
+                                            Sam
+                                        </td>
+                                        <td>
+                                            <span class="badge badge-green"
+                                                >Active</span
+                                            >
+                                        </td>
+                                        <td>
+                                            <progress
+                                                count-up
+                                                value="32"
+                                                max="40"
+                                            ></progress>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a
+                                                href="#"
+                                                command-for="detail-drawer"
+                                                command="show-modal"
+                                                tooltip="View details"
+                                                >Design System</a
+                                            >
+                                        </td>
+                                        <td>
+                                            <img
+                                                src="https://i.abcnewsfe.com/a/10669fab-5a56-4555-8012-0b3d83369352/avatar-the-way-of-water-07-ht-jt-220907_1662579296232_hpMain_1x1.jpg?w=992"
+                                                avatar="sm"
+                                                style="vertical-align: middle"
+                                            />
+                                            Jordan
+                                        </td>
+                                        <td>
+                                            <span class="badge badge-yellow"
+                                                >Review</span
+                                            >
+                                        </td>
+                                        <td>
+                                            <progress
+                                                count-up
+                                                value="12"
+                                                max="18"
+                                            ></progress>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a
+                                                href="#"
+                                                command-for="detail-drawer"
+                                                command="show-modal"
+                                                tooltip="View details"
+                                                >API Gateway</a
+                                            >
+                                        </td>
+                                        <td>
+                                            <img
+                                                src="https://i.abcnewsfe.com/a/10669fab-5a56-4555-8012-0b3d83369352/avatar-the-way-of-water-07-ht-jt-220907_1662579296232_hpMain_1x1.jpg?w=992"
+                                                avatar="sm"
+                                                style="vertical-align: middle"
+                                            />
+                                            Riley
+                                        </td>
+                                        <td>
+                                            <span class="badge badge-blue"
+                                                >On Hold</span
+                                            >
+                                        </td>
+                                        <td>
+                                            <progress
+                                                count-up
+                                                value="9"
+                                                max="30"
+                                            ></progress>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </main>
+                    </fieldset>
+
+                    <fieldset card>
+                        <header>Recent Activity</header>
+                        <main>
+                            <div class="activity-item">
+                                <img
+                                    src="https://i.abcnewsfe.com/a/10669fab-5a56-4555-8012-0b3d83369352/avatar-the-way-of-water-07-ht-jt-220907_1662579296232_hpMain_1x1.jpg?w=992"
+                                    avatar="sm"
+                                />
+                                <div>
+                                    <strong style="font-size: 0.875rem"
+                                        >Alex</strong
+                                    >
+                                    pushed to <code>main</code>
+                                    <p
+                                        truncate="2"
+                                        style="
+                                            margin: 0.15rem 0 0;
+                                            font-size: 0.85rem;
+                                            color: var(--app-text-secondary);
+                                        "
+                                    >
+                                        Updated the authentication module with
+                                        OAuth2 support including refresh token
+                                        rotation, session management, and
+                                        multi-provider integration across the
+                                        entire platform.
+                                    </p>
+                                    <time tooltip="2026-07-09 14:32"
+                                        >2 minutes ago</time
+                                    >
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <img
+                                    src="https://i.abcnewsfe.com/a/10669fab-5a56-4555-8012-0b3d83369352/avatar-the-way-of-water-07-ht-jt-220907_1662579296232_hpMain_1x1.jpg?w=992"
+                                    avatar="sm"
+                                />
+                                <div>
+                                    <strong style="font-size: 0.875rem"
+                                        >Sam</strong
+                                    >
+                                    opened PR <code>#142</code>
+                                    <p
+                                        truncate="2"
+                                        style="
+                                            margin: 0.15rem 0 0;
+                                            font-size: 0.85rem;
+                                            color: var(--app-text-secondary);
+                                        "
+                                    >
+                                        Adds combo-box, card, and theme-toggle
+                                        directives to the documentation with
+                                        live examples and dark mode support.
+                                    </p>
+                                    <time tooltip="2026-07-09 13:15"
+                                        >1 hour ago</time
+                                    >
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <img
+                                    src="https://i.abcnewsfe.com/a/10669fab-5a56-4555-8012-0b3d83369352/avatar-the-way-of-water-07-ht-jt-220907_1662579296232_hpMain_1x1.jpg?w=992"
+                                    avatar="sm"
+                                />
+                                <div>
+                                    <strong style="font-size: 0.875rem"
+                                        >Jordan</strong
+                                    >
+                                    deployed <code>v3.2.1</code>
+                                    <p
+                                        truncate="1"
+                                        style="
+                                            margin: 0.15rem 0 0;
+                                            font-size: 0.85rem;
+                                            color: var(--app-text-secondary);
+                                        "
+                                    >
+                                        Rolled out the new shell layout and
+                                        fixed close-outside dialog interaction
+                                        across all major browsers.
+                                    </p>
+                                    <time tooltip="2026-07-09 11:00"
+                                        >3 hours ago</time
+                                    >
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <img
+                                    src="https://i.abcnewsfe.com/a/10669fab-5a56-4555-8012-0b3d83369352/avatar-the-way-of-water-07-ht-jt-220907_1662579296232_hpMain_1x1.jpg?w=992"
+                                    avatar="sm"
+                                />
+                                <div>
+                                    <strong style="font-size: 0.875rem"
+                                        >Riley</strong
+                                    >
+                                    commented on <code>#138</code>
+                                    <p
+                                        truncate="2"
+                                        style="
+                                            margin: 0.15rem 0 0;
+                                            font-size: 0.85rem;
+                                            color: var(--app-text-secondary);
+                                        "
+                                    >
+                                        The enhance directive works well for
+                                        form submissions. The loading state
+                                        transition could be smoother when the
+                                        response is fast.
+                                    </p>
+                                    <time tooltip="2026-07-09 09:45"
+                                        >5 hours ago</time
+                                    >
+                                </div>
+                            </div>
+                        </main>
+                    </fieldset>
+                </div>
+
+                <div class="bottom-grid">
+                    <fieldset card>
+                        <header>Storage</header>
+                        <main>
+                            <progress
+                                count-up
+                                value="250"
+                                max="500"
+                                style="
+                                    width: 100%;
+                                    height: 8px;
+                                    border-radius: 4px;
+                                "
+                            ></progress>
+                            <p
+                                style="
+                                    margin-top: 0.5rem;
+                                    font-size: 0.85rem;
+                                    color: var(--app-text-secondary);
+                                "
+                            >
+                                <span count-up duration="1500">250</span> / 500
+                                GB used
+                            </p>
+                        </main>
+                    </fieldset>
+
+                    <fieldset card>
+                        <header>Quick Note</header>
+                        <main>
+                            <textarea
+                                autosize
+                                character-count
+                                maxlength="500"
+                                placeholder="Type a note&hellip;"
+                                class="dash-input"
+                                rows="3"
+                            ></textarea>
+                            <div class="card-inline-actions">
+                                <button class="dash-btn dash-btn-primary">
+                                    Save Note
+                                </button>
+                                <button class="dash-btn">Discard</button>
+                            </div>
+                        </main>
+                    </fieldset>
+
+                    <fieldset card>
+                        <header>Contact &amp; Inputs</header>
+                        <main>
+                            <div class="input-row">
+                                <input
+                                    leading="search"
+                                    clearable
+                                    placeholder="Search contacts..."
+                                    class="dash-input"
+                                />
+                                <input
+                                    type="tel"
+                                    mask
+                                    placeholder="Phone"
+                                    class="dash-input"
+                                />
+                            </div>
+                            <div class="input-row">
+                                <input
+                                    value="https://acme.upper.do/portal"
+                                    auto-select
+                                    readonly
+                                    class="dash-input"
+                                />
+                                <input
+                                    type="url"
+                                    prefix
+                                    placeholder="your-site.com"
+                                    class="dash-input"
+                                />
+                            </div>
+                            <hr class="form-divider" />
+                            <form enhance method="post" action="/api/contact">
+                                <div class="input-row">
+                                    <input
+                                        name="email"
+                                        type="email"
+                                        required
+                                        placeholder="Email address"
+                                        error-message
+                                        class="dash-input"
+                                    />
+                                    <button
+                                        loading
+                                        type="submit"
+                                        class="dash-btn dash-btn-primary"
+                                    >
+                                        Subscribe
+                                    </button>
+                                </div>
+                            </form>
+                            <textarea
+                                enter-submit
+                                placeholder="Type a quick message&hellip; Ctrl+Enter to send"
+                                class="dash-input"
+                                rows="2"
+                            ></textarea>
+                            <label drop-zone style="margin-top: 0.75rem">
+                                <span>Upload attachment</span>
+                                <input type="file" name="attachment" multiple />
+                            </label>
+                        </main>
+                    </fieldset>
+
+                    <fieldset card>
+                        <header>Settings</header>
+                        <main>
+                            <div class="settings-group">
+                                <label
+                                    ><input type="checkbox" switch checked />
+                                    Email notifications</label
+                                >
+                                <label
+                                    ><input type="checkbox" switch /> Weekly
+                                    digest</label
+                                >
+                                <label
+                                    ><input type="checkbox" switch checked />
+                                    Two-factor authentication</label
+                                >
+                            </div>
+                            <div class="api-key-row">
+                                <code id="api-key"
+                                    >sk_live_3f8a2c7e9b1d4kQm</code
+                                >
+                                <button
+                                    copy="#api-key"
+                                    class="dash-btn dash-btn-sm"
+                                >
+                                    Copy Key
+                                </button>
+                                <span
+                                    tooltip="Regenerating will invalidate the current key"
+                                >
+                                    <button class="dash-btn dash-btn-sm">
+                                        Regenerate
+                                    </button>
+                                </span>
+                            </div>
+                            <div
+                                style="
+                                    margin-top: 1rem;
+                                    padding-top: 1rem;
+                                    border-top: 1px solid var(--app-border);
+                                "
+                            >
+                                <p
+                                    style="
+                                        font-size: 0.85rem;
+                                        margin: 0 0 0.5rem;
+                                        color: var(--app-text-secondary);
+                                    "
+                                >
+                                    Permanently delete this project. An OTP will
+                                    be sent to your email for confirmation.
+                                </p>
+                                <button
+                                    command-for="confirm-modal"
+                                    command="show-modal"
+                                    class="dash-btn dash-btn-danger dash-btn-sm"
+                                >
+                                    Delete Project
+                                </button>
+                            </div>
+                        </main>
+                    </fieldset>
+                </div>
+            </article>
+        </div>
+
+        <dialog modal id="confirm-modal">
+            <div class="sprinkle-modal-header">
+                Confirm Deletion
+                <button
+                    class="sprinkle-modal-close"
+                    command-for="confirm-modal"
+                    command="close"
+                >
+                    &times;
+                </button>
+            </div>
+            <div class="sprinkle-modal-body">
+                <p>
+                    A one-time code has been sent to
+                    <strong>jane@acme.com</strong>. Enter it below to confirm
+                    permanent deletion.
+                </p>
+                <input type="number" min="6" max="6" otp />
+            </div>
+            <div class="sprinkle-modal-footer">
+                <button
+                    command-for="confirm-modal"
+                    command="close"
+                    class="dash-btn"
+                >
+                    Cancel
+                </button>
+                <button class="dash-btn dash-btn-danger">Confirm Delete</button>
+            </div>
+        </dialog>
+
+        <dialog drawer="right" close-outside id="detail-drawer">
+            <div class="sprinkle-modal-header">
+                Project Details
+                <button
+                    class="sprinkle-modal-close"
+                    command-for="detail-drawer"
+                    command="close"
+                >
+                    &times;
+                </button>
+            </div>
+            <div class="sprinkle-modal-body">
+                <h3 style="margin-top: 0">Forge Core v2</h3>
+                <p>
+                    Complete rewrite of the core rendering engine with improved
+                    performance and better developer ergonomics.
+                </p>
+                <ul>
+                    <li><strong>Lead:</strong> Alex Chen</li>
+                    <li>
+                        <strong>Status:</strong>
+                        <span class="badge badge-green">Active</span>
+                    </li>
+                    <li><strong>Team:</strong> Engineering</li>
+                    <li><strong>Deadline:</strong> Q3 2026</li>
+                </ul>
+                <hr />
+                <button>View Full Details</button>
+            </div>
+        </dialog>
+
+        <footer class="app-footer">
+            <span
+                >&copy; 2026 Acme Inc. Built with
+                <a href="../index.html">Sprinkle</a>.</span
+            >
+            <nav>
+                <a href="../docs.html">Documentation</a>
+                <a href="https://github.com/forge-kernel/sprinkle">GitHub</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </nav>
+        </footer>
+
+        <script
+            src="https://raw.githubusercontent.com/forge-kernel/sprinkle/refs/heads/main/src/UI/assets/js/sprinkle.min.js"
+            defer
+        ></script>
+    </body>
+</html>

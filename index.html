@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sprinkle - high power behaviors for HTML</title>
+        <link rel="stylesheet" href="style.css" />
+        <link
+            rel="stylesheet"
+            href="https://raw.githubusercontent.com/forge-kernel/sprinkle/refs/heads/main/src/UI/assets/css/sprinkle.min.css"
+        />
+        <meta name="sprinkle-svg-path" content="./icons/" />
+        <style>
+            .demo-card {
+                margin-bottom: 2.5rem;
+            }
+
+            .demo-card h3 {
+                font-size: 1.1rem;
+                margin: 0 0 0.5rem;
+            }
+
+            .demo-card h3 code {
+                font-size: 0.85em;
+            }
+
+            .demo-card > p {
+                color: var(--text-color);
+                margin-bottom: 1rem;
+            }
+
+            .doc-demo {
+                padding: 1rem;
+                border: 1px solid var(--border-color);
+                border-left: 3px solid var(--accent);
+                border-radius: 6px;
+                margin-bottom: 0.75rem;
+                background: var(--bg-color);
+            }
+
+            .doc-demo select,
+            .doc-demo button {
+                vertical-align: middle;
+            }
+
+            .doc-code pre {
+                margin: 0;
+            }
+
+            .demos-sub {
+                margin-bottom: 2rem;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="top-nav" sticky>
+            <nav>
+                <a href="index.html" class="brand"
+                    ><span class="bracket">[</span
+                    ><span class="bracket">]</span> spr<span class="accent"
+                        >inkle</span
+                    ></a
+                >
+                <a href="docs.html">Docs</a>
+                <a href="examples/dashboard.html">Examples</a>
+                <a href="https://github.com/forge-kernel/sprinkle">GitHub</a>
+            </nav>
+        </header>
+
+        <div class="hero-banner">
+            <h1 class="brand-logo">
+                <span class="bracket">[</span
+                ><span class="bracket">]</span> spr<span class="accent"
+                    >inkle</span
+                >
+            </h1>
+            <p class="tagline">high power behaviors for HTML</p>
+
+            <p class="manifesto">
+                Upgrade native form controls and layout structures with single
+                attributes.<br />
+                Zero JavaScript boilerplate. Zero dependencies. No build step
+                required.
+            </p>
+
+            <a href="#demos" class="cta-link">See what it can do ↓</a>
+        </div>
+
+        <main>
+            <section id="demos">
+                <h2>See what Sprinkle can do</h2>
+                <p class="lead demos-sub">
+                    These are live, interactive components. Every one started as
+                    a native HTML element &mdash; then gained behavior through a
+                    single attribute. No JavaScript written, no build step.
+                </p>
+
+                <!-- Demo 1: combo-box -->
+                <div class="demo-card">
+                    <h3>Searchable Select &mdash; <code>combo-box</code></h3>
+                    <p>
+                        A native <code>&lt;select&gt;</code> becomes a
+                        searchable combobox with option categories and
+                        multi-select pills.
+                    </p>
+                    <div class="doc-demo">
+                        <select name="framework" combo-box searchable>
+                            <option value="">Select a framework…</option>
+                            <option value="react" category="Frontend">
+                                React
+                            </option>
+                            <option value="vue" category="Frontend">Vue</option>
+                            <option value="angular" category="Frontend">
+                                Angular
+                            </option>
+                            <option value="laravel" category="Backend">
+                                Laravel
+                            </option>
+                            <option value="django" category="Backend">
+                                Django
+                            </option>
+                            <option value="rails" category="Backend">
+                                Ruby on Rails
+                            </option>
+                            <option value="postgres" category="Database">
+                                PostgreSQL
+                            </option>
+                            <option value="mysql" category="Database">
+                                MySQL
+                            </option>
+                            <option value="mongo" category="Database">
+                                MongoDB
+                            </option>
+                        </select>
+
+                        <select name="tags[]" multiple combo-box searchable>
+                            <option value="" disabled>
+                                Select technologies…
+                            </option>
+                            <option value="php">PHP</option>
+                            <option value="js" selected>JavaScript</option>
+                            <option value="css" selected>CSS</option>
+                            <option value="html">HTML</option>
+                            <option value="python">Python</option>
+                        </select>
+                    </div>
+                    <div class="doc-code">
+                        <pre><code>&lt;select name="framework" combo-box searchable&gt;
+    &lt;option value="react" category="Frontend"&gt;React&lt;/option&gt;
+    &lt;option value="vue" category="Frontend"&gt;Vue&lt;/option&gt;
+    &lt;option value="laravel" category="Backend"&gt;Laravel&lt;/option&gt;
+    &amp;hellip;
+&lt;/select&gt;
+
+&lt;select name="tags[]" multiple combo-box searchable&gt;
+    &lt;option value="js" selected&gt;JavaScript&lt;/option&gt;
+    &lt;option value="css" selected&gt;CSS&lt;/option&gt;
+    &amp;hellip;
+&lt;/select&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Demo 2: drop-zone -->
+                <div class="demo-card">
+                    <h3>File Upload Zone &mdash; <code>drop-zone</code></h3>
+                    <p>
+                        A <code>&lt;label&gt;</code> wrapping a file input
+                        becomes a drag-and-drop upload area with image preview
+                        and file removal.
+                    </p>
+                    <div class="doc-demo">
+                        <label drop-zone>
+                            <span>Drop an image here or click to browse</span>
+                            <input
+                                type="file"
+                                name="image"
+                                accept="image/*"
+                                multiple
+                            />
+                        </label>
+                    </div>
+                    <div class="doc-code">
+                        <pre><code>&lt;label drop-zone&gt;
+    &lt;span&gt;Drop an image here or click to browse&lt;/span&gt;
+    &lt;input type="file" name="image" accept="image/*" multiple /&gt;
+&lt;/label&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Demo 3: drawer + modal -->
+                <div class="demo-card">
+                    <h3>
+                        Dialogs &amp; Drawers &mdash; <code>drawer</code> +
+                        <code>modal</code>
+                    </h3>
+                    <p>
+                        Slide-in drawers and centered modals using the native
+                        <code>&lt;dialog&gt;</code> element &mdash; no
+                        <code>showModal()</code> calls, just
+                        <code>command-for</code> attributes.
+                    </p>
+                    <div class="doc-demo">
+                        <button command-for="demo-drawer" command="show-modal">
+                            Open Drawer
+                        </button>
+
+                        <dialog drawer="left" close-outside id="demo-drawer">
+                            <div class="sprinkle-modal-header">
+                                Menu
+                                <button
+                                    class="sprinkle-modal-close"
+                                    command-for="demo-drawer"
+                                    command="close"
+                                >
+                                    &times;
+                                </button>
+                            </div>
+                            <div class="sprinkle-modal-body">
+                                <ul nav>
+                                    <li><a href="#">Dashboard</a></li>
+                                    <li><a href="#">Projects</a></li>
+                                    <li><a href="#">Settings</a></li>
+                                </ul>
+                                <hr />
+                                <button
+                                    command-for="demo-modal"
+                                    command="show-modal"
+                                >
+                                    Show Confirmation
+                                </button>
+                            </div>
+                        </dialog>
+
+                        <dialog modal close-outside id="demo-modal">
+                            <div class="sprinkle-modal-header">
+                                Confirm
+                                <button
+                                    class="sprinkle-modal-close"
+                                    command-for="demo-modal"
+                                    command="close"
+                                >
+                                    &times;
+                                </button>
+                            </div>
+                            <div class="sprinkle-modal-body">
+                                Are you sure you want to proceed?
+                            </div>
+                            <div class="sprinkle-modal-footer">
+                                <button
+                                    command-for="demo-modal"
+                                    command="close"
+                                >
+                                    Cancel
+                                </button>
+                                <button>Confirm</button>
+                            </div>
+                        </dialog>
+                    </div>
+                    <div class="doc-code">
+                        <pre><code>&lt;dialog drawer="left" close-outside id="nav"&gt;
+    &amp;hellip; menu content &amp;hellip;
+&lt;/dialog&gt;
+
+&lt;dialog modal close-outside id="confirm"&gt;
+    &amp;hellip; confirmation content &amp;hellip;
+&lt;/dialog&gt;
+
+&lt;button command-for="nav" command="show-modal"&gt;Open&lt;/button&gt;
+&lt;button command-for="confirm" command="show-modal"&gt;Confirm&lt;/button&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <section id="introduction">
+                <h2>How it works</h2>
+                <p>
+                    <strong>Sprinkle</strong> provides a set of HTML attributes
+                    that map directly to small pieces of behavior or styling. It
+                    focuses on adding UX polish &mdash; like tooltips,
+                    dropdowns, modals, and character counters &mdash; without
+                    requiring a heavy JavaScript framework, build steps, or
+                    external dependencies.
+                </p>
+                <p>
+                    Every directive works gracefully, degrading to native
+                    elements if JavaScript is disabled. It is designed to
+                    progressively enhance your already-existing HTML.
+                </p>
+            </section>
+
+            <section id="motivation">
+                <h2>Motivation</h2>
+                <p>
+                    Modern web development often jumps straight to heavy UI
+                    component libraries or full JavaScript frameworks for simple
+                    interactive features. Sprinkle takes a different approach:
+                </p>
+                <ul>
+                    <li>
+                        <strong>HTML-first:</strong> You write the markup and
+                        styles, we provide the enhancement layer.
+                    </li>
+                    <li>
+                        <strong>CSS handles the rest:</strong> Everything that
+                        can be handled purely by CSS (avatars, breadcrumbs,
+                        modals, dropdown layouts) is handled by CSS.
+                    </li>
+                    <li>
+                        <strong>Minimal footprint:</strong> Only ~34KB minified
+                        for both CSS and JS.
+                    </li>
+                    <li>
+                        <strong>No build steps:</strong> Just include a
+                        <code>&lt;script defer&gt;</code> before your
+                        <code>&lt;/body&gt;</code> and a
+                        <code>&lt;link&gt;</code> in your
+                        <code>&lt;/head&gt;</code>.
+                    </li>
+                </ul>
+                <p>
+                    This is <em>not</em> a UI component library, not a
+                    replacement for HTML, and not a polyfill. It relies on
+                    modern browser APIs like <code>MutationObserver</code>,
+                    <code>IntersectionObserver</code>,
+                    <code>&lt;dialog&gt;</code>, and
+                    <code>CSS @starting-style</code>.
+                </p>
+            </section>
+
+            <section id="quick-start">
+                <h2>Quick Start</h2>
+                <p>To use Sprinkle, simply add the CSS and JS to your page:</p>
+
+                <pre><code><span class="comment">&lt;!-- In your &lt;head&gt; --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr-name">rel=</span><span class="attr-value">"stylesheet"</span> <span class="attr-name">href=</span><span class="attr-value">"path/to/sprinkle.css"</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Before your &lt;/body&gt; --&gt;</span>
+<span class="tag">&lt;script</span> <span class="attr-name">src=</span><span class="attr-value">"path/to/sprinkle.js"</span> <span class="attr-name">defer</span><span class="tag">&gt;&lt;/script&gt;</span></code></pre>
+
+                <p>
+                    Once included, you can start using directives directly in
+                    your HTML:
+                </p>
+
+                <pre><code><span class="comment">&lt;!-- A tooltip --&gt;</span>
+<span class="tag">&lt;button</span> <span class="attr-name">tooltip=</span><span class="attr-value">"This cannot be undone"</span><span class="tag">&gt;</span>Delete<span class="tag">&lt;/button&gt;</span>
+
+<span class="comment">&lt;!-- A copy button --&gt;</span>
+<span class="tag">&lt;button</span> <span class="attr-name">copy=</span><span class="attr-value">"#email"</span><span class="tag">&gt;</span>Copy Email<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;span</span> <span class="attr-name">id=</span><span class="attr-value">"email"</span><span class="tag">&gt;</span>hello@example.com<span class="tag">&lt;/span&gt;</span>
+
+<span class="comment">&lt;!-- An auto-growing textarea --&gt;</span>
+<span class="tag">&lt;textarea</span> <span class="attr-name">autosize</span><span class="tag">&gt;&lt;/textarea&gt;</span></code></pre>
+
+                <p>
+                    Check out the <a href="docs.html">documentation</a> to see
+                    all available directives, or browse the
+                    <a href="examples/dashboard.html">examples</a> for
+                    real-world usage.
+                </p>
+            </section>
+        </main>
+
+        <footer>
+            <p>
+                Sprinkle is a free and open-source library released under the
+                <a
+                    href="https://github.com/forge-kernel/sprinkle/blob/main/LICENSE"
+                    >MIT License</a
+                >.
+            </p>
+            <p>Enhancing HTML, simply.</p>
+        </footer>
+
+        <script
+            src="https://raw.githubusercontent.com/forge-kernel/sprinkle/refs/heads/main/src/UI/assets/js/sprinkle.min.js"
+            defer
+        ></script>
+    </body>
+</html>
