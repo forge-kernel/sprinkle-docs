@@ -28,6 +28,7 @@
                 <span class="dash-brand">
                     <span class="dash-brand-badge">F</span>
                 </span>
+                <button class="sidebar-toggle" command-for="mobile-sidebar" command="show-modal" aria-label="Open sidebar">☰</button>
                 <a href="#" class="active">Dashboard</a>
                 <a href="#">Projects</a>
                 <a href="#">Reports</a>
@@ -656,6 +657,35 @@
                 </ul>
                 <hr />
                 <button>View Full Details</button>
+            </div>
+        </dialog>
+
+        <dialog drawer="left" id="mobile-sidebar" close-outside>
+            <div class="sprinkle-modal-header">
+                <span class="dash-brand">
+                    <span class="dash-brand-badge">F</span>
+                </span>
+                Navigation
+                <button class="sprinkle-modal-close" command-for="mobile-sidebar" command="close" aria-label="Close sidebar">&times;</button>
+            </div>
+            <div class="sprinkle-modal-body">
+                <ul nav>
+                    <li><a href="#" active aria-current="page">Dashboard</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Team</a></li>
+                </ul>
+                <div class="app-side-label">Analytics</div>
+                <ul nav>
+                    <li><a href="#">Overview</a></li>
+                    <li><a href="#">Conversions</a></li>
+                    <li><a href="#">Traffic</a></li>
+                </ul>
+                <div class="app-side-label">Settings</div>
+                <ul nav>
+                    <li><a href="#">General</a></li>
+                    <li><a href="#">Billing</a></li>
+                    <li><a href="#">Notifications</a></li>
+                </ul>
             </div>
         </dialog>
 

@@ -270,6 +270,28 @@ a:hover {
     flex-shrink: 0;
 }
 
+/* ── Sidebar Toggle (mobile) ── */
+
+.sidebar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    color: var(--app-text);
+    border-radius: 6px;
+}
+
+.sidebar-toggle:hover {
+    background: var(--app-hover);
+}
+
+#mobile-sidebar .sprinkle-modal-header .dash-brand {
+    border: none;
+    margin-right: auto;
+}
+
 /* ── Shell Override ── */
 
 .app-shell {
@@ -677,6 +699,9 @@ textarea.dash-input {
 /* ── Responsive ── */
 
 @media (max-width: 768px) {
+    .sidebar-toggle {
+        display: block;
+    }
     .dash-grid {
         grid-template-columns: 1fr;
     }
