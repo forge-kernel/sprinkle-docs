@@ -401,23 +401,30 @@
 
 <div class="doc-directive" id="date-range">
   <h3><code>date-range</code></h3>
-  <p>On: &lt;input type="date|datetime-local"&gt;</p>
+  <p>On: &lt;input type="date|datetime-local"&gt;. Add <code>date-input</code> to enable the custom calendar picker with dual-month range view.</p>
   <div class="doc-demo">
-    <input type="date" date-range="trip" data-range-type="start" name="trip_start" />
-  <input type="date" date-range="trip" data-range-type="end" name="trip_end" />
+    <input type="date" date-input date-range="trip" data-range-type="start" name="trip_start" />
+  <input type="date" date-input date-range="trip" data-range-type="end" name="trip_end" />
   </div>
-  <div class="doc-code"><pre><code>&lt;input type="date" date-range="trip" data-range-type="start" /&gt;
-&lt;input type="date" date-range="trip" data-range-type="end" /&gt;</code></pre></div>
+  <div class="doc-code"><pre><code>&lt;input type="date" date-input date-range="trip" data-range-type="start" /&gt;
+&lt;input type="date" date-input date-range="trip" data-range-type="end" /&gt;</code></pre></div>
 </div>
 
 <div class="doc-directive" id="date-input">
   <h3><code>date-input</code></h3>
-  <p>On: &lt;input type="date|datetime-local"&gt;</p>
+  <p>On: &lt;input type="date|datetime-local"&gt;. Replaces the native date picker with a custom calendar popup featuring month/year navigation, disabled date support, keyboard navigation (arrows, PageUp/Down, Home/End, Enter/Space, Escape), and full ARIA accessibility. When combined with <code>date-range</code>, displays two side-by-side months.</p>
   <div class="doc-demo">
     <input type="date" date-input />
-  <input type="datetime-local" date-input />
   </div>
-  <div class="doc-code"><pre><code>&lt;input type="date" date-input /&gt;</code></pre></div>
+  <div class="doc-code"><pre><code>&lt;input type="date" date-input /&gt;
+
+&lt;!-- With constraints --&gt;
+&lt;input type="date" date-input no-past /&gt;
+&lt;input type="date" date-input disable-days="weekends" /&gt;
+
+&lt;!-- Range mode --&gt;
+&lt;input type="date" date-input date-range="trip" data-range-type="start" /&gt;
+&lt;input type="date" date-input date-range="trip" data-range-type="end" /&gt;</code></pre></div>
 </div>
 
 <hr>
